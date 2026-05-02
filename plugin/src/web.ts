@@ -20,15 +20,39 @@ export class CapacitorBarcodeScannerWeb
   extends WebPlugin
   implements CapacitorBarcodeScannerPlugin
 {
+  private listenersAdded = false;
+
+  private disableMouseClick = (event: MouseEvent) => {
+    if (
+      (window as any).OSBarcodeWebScanner &&
+      !(window as any).OSBarcodeWebScanner.isScanning
+    ) {
+      event.stopPropagation();
+      event.preventDefault();
+    }
+  };
+
+  private disableBrowserBackButton = () => {
+    if (
+      (window as any).OSBarcodeWebScanner &&
+      !(window as any).OSBarcodeWebScanner.isScanning
+    ) {
+      window.history.pushState(null, document.title, window.location.href);
+    }
+  };
+
   /**
    * Stops the barcode scanner and hides its UI.
    * @private
    * @returns {Promise<void>} A promise that resolves when the scanner has stopped and its UI is hidden.
    */
   private async stopAndHideScanner(): Promise<void> {
-    console.log((window as any).OSBarcodeWebScanner);
     if ((window as any).OSBarcodeWebScanner) {
-      await (window as any).OSBarcodeWebScanner.stop();
+      try {
+        await (window as any).OSBarcodeWebScanner.stop();
+      } catch {
+        // ignore exception
+      }
       (window as any).OSBarcodeWebScanner = null;
     }
 
@@ -108,6 +132,12 @@ export class CapacitorBarcodeScannerWeb
   async scanBarcode(
     options: CapacitorBarcodeScannerOptions,
   ): Promise<CapacitorBarcodeScannerScanResult> {
+    if (!this.listenersAdded) {
+      document.addEventListener('click', this.disableMouseClick, true);
+      window.addEventListener('popstate', this.disableBrowserBackButton);
+      this.listenersAdded = true;
+    }
+
     this.buildScannerElement();
 
     document.getElementById(

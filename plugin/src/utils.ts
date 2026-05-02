@@ -6,7 +6,7 @@ export const barcodeScannerCss = [
   { selector: ".scanner-container-display", css: "display: block;" },
   {
     selector: ".scanner-dialog",
-    css: "display: none; position: fixed; z-index: 999; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.4);",
+    css: "display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.4);",
   },
   {
     selector: ".scanner-dialog-inner",
