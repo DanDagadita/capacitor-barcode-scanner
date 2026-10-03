@@ -1,6 +1,6 @@
 {
   "name": "@dandagadita/capacitor-barcode-scanner",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "description": "Capacitor plugin using Outsystems Barcode libs",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
@@ -10,7 +10,7 @@
     "android/src/main/",
     "android/build.gradle",
     "dist/",
-    "CapacitorBarcodeScanner.podspec",
+    "DandagaditaCapacitorBarcodeScanner.podspec",
     "scripts/",
     "ios/Sources",
     "ios/Tests",
