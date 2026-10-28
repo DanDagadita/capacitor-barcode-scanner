@@ -1,6 +1,6 @@
 {
   "name": "@dandagadita/capacitor-barcode-scanner",
-  "version": "3.1.1",
+  "version": "3.1.3",
   "description": "Capacitor plugin using Outsystems Barcode libs",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
@@ -35,7 +35,7 @@
   },
   "scripts": {
     "verify": "npm run verify:ios && npm run verify:android && npm run verify:web",
-    "verify:ios": "xcodebuild -scheme CapacitorBarcodeScanner -destination generic/platform=iOS",
+    "verify:ios": "xcodebuild -scheme DandagaditaCapacitorBarcodeScanner -destination generic/platform=iOS",
     "verify:android": "cd android && ./gradlew clean build test && cd ..",
     "verify:web": "npm run build",
     "lint": "npm run eslint && npm run prettier -- --check && npm run swiftlint -- lint",

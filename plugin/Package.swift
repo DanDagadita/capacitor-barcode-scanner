@@ -2,16 +2,16 @@
 import PackageDescription
 
 let package = Package(
-    name: "CapacitorBarcodeScanner",
+    name: "DandagaditaCapacitorBarcodeScanner",
     platforms: [.iOS(.v15)],
     products: [
         .library(
-            name: "CapacitorBarcodeScanner",
+            name: "DandagaditaCapacitorBarcodeScanner",
             targets: ["CapacitorBarcodeScannerPlugin"])
     ],
     dependencies: [
         .package(url: "https://github.com/ionic-team/capacitor-swift-pm.git", from: "8.0.0"),
-        .package(url: "https://github.com/OutSystems/OSBarcodeLib-iOS.git", from: "2.2.0")
+        .package(url: "https://github.com/OutSystems/OSBarcodeLib-iOS.git", from: "3.0.0")
     ],
     targets: [
         .target(

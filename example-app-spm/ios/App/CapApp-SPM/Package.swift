@@ -11,8 +11,8 @@ let package = Package(
             targets: ["CapApp-SPM"])
     ],
     dependencies: [
-        .package(url: "https://github.com/ionic-team/capacitor-swift-pm.git", exact: "8.0.2"),
-        .package(name: "CapacitorBarcodeScanner", path: "../../../../plugin")
+        .package(url: "https://github.com/ionic-team/capacitor-swift-pm.git", exact: "8.3.4"),
+        .package(name: "DandagaditaCapacitorBarcodeScanner", path: "../../../../plugin")
     ],
     targets: [
         .target(
@@ -20,7 +20,7 @@ let package = Package(
             dependencies: [
                 .product(name: "Capacitor", package: "capacitor-swift-pm"),
                 .product(name: "Cordova", package: "capacitor-swift-pm"),
-                .product(name: "CapacitorBarcodeScanner", package: "CapacitorBarcodeScanner")
+                .product(name: "DandagaditaCapacitorBarcodeScanner", package: "DandagaditaCapacitorBarcodeScanner")
             ]
         )
     ]
